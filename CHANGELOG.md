@@ -1,5 +1,34 @@
 # Changelog
 
+## 3.2.5 — 2026-10-27
+
+### S3 tags (Infinia 2.5+ DDN-unlimited)
+- New `ddn_redclient/s3/tagging.py` helper: put/get/delete object and bucket tags, `x-ddn-tagging-*` header injection, pagination, and AWS vs `ddn:` split
+- `redclient tags get|set|delete` and `redclient s3api` tagging operations (`get/put/delete-object-tagging`, bucket equivalents) with `--unlimited`, `--tag`, `--tag-prefix`, `--max-tags`, `--ddn-prefix`
+- Load gen stamps `ddn:loadgen.*` after create/modify by default; each object version adds `ddn:loadgen.vN` and updates `ddn:loadgen.version`; `--tag`, `--no-loadgen-tags`, `--cleanup-loadgen-tags`; desktop Load gen rail checkbox and Extra tags field
+- S3 Browse **Selection → Tags…** / **Bucket → Tags…** (and context menu) edit AWS-compliant and DDN-unlimited tags
+- S3 Browse listing **Tags** filter (`key`, `key=value`, `ddn:loadgen.v*`, `*=value`) loads object tags for the open folder and hides non-matches (folders stay)
+- S3 provision stamps the default bucket with `Tenant` / `ManagedBy=redclient` plus `ddn:provision.*` tags (tenant, subtenant, service, admin, created, object_lock)
+- Applying or removing a bucket policy stamps `ddn:policy.*` tags (enabled, updated, statement_count, sids, public, effects, summary) without replacing AWS tags
+
+### Docs
+- Help (`tags`, `s3api`, `loadgen`, `provision`, `gui`), User Manual (Browse Tags dialog + filter, provision stamps, loadgen stamps), README / INSTALL / DEVELOPMENT version stamps, and packaging sync cover the tagging release
+
+## 3.2.4 — 2026-10-27
+
+### Provision / quotas
+- S3 provision applies the subtenant quota as the default bucket's allocated capacity (`bulk_quota` / `redcli s3 bucket … -A`) so Services, `redcli dataset list` / `s3 bucket list`, and the provisioned ceiling stay aligned
+- POSIX still maps the subtenant quota to service `datasetsize` (unchanged)
+- `redclient service-quota` and Management → Services → **Edit quota** resize the subtenant ceiling and the matching POSIX dataset size or S3 bucket capacities (cannot exceed the tenant quota)
+- Quota editors use amount + **MB / GB / TB / PB** (decimal SI → bytes for the API, same as `redcli dataset list`); bare `10GB` / `50GB` are 10⁹-based, `GiB` / `MiB` stay binary
+- Services / Monitor capacity and usage labels match `redcli` (`126.9 GB`, `3.101 GB (2%)`, `0 B (0%)`)
+
+### Desktop
+- Title bar: DDN logo on the left; operating-mode badge, theme toggle, and connectivity badge on the right show **Connected · \<Infinia version\>** or **Offline** (`GET /redapi/v1/version`). Offline tooltip says Click to connect; click the badge to refresh. Saving a realm account re-probes automatically
+
+### Docs
+- Help (`provision`, `service-quota`, `gui`), User Manual (Management / Getting started), README / INSTALL / DEVELOPMENT version stamps, and packaging sync cover the quota and connectivity changes
+
 ## 3.2.3 — 2026-10-22
 
 ### Packaging

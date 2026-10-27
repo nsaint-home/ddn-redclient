@@ -1,6 +1,6 @@
 # Install DDN-RedClient
 
-**Version 3.2.3** · 2026-10-22 · see [CHANGELOG.md](CHANGELOG.md)
+**Version 3.2.5** · 2026-10-27 · see [CHANGELOG.md](CHANGELOG.md)
 
 Download packages from this repository’s **Releases** page. Pick the asset that matches your OS. Packages built for one OS do not run on another.
 
@@ -21,12 +21,12 @@ Account data is **not** inside the app install. Upgrades leave saved accounts in
 | macOS | `redclient_<version>_macos-arm64.zip` or `macos-x86_64.zip` |
 | Windows | `redclient_<version>_windows-amd64.zip` |
 
-Replace `<version>` with the release version (for this tree, `3.2.3`).
+Replace `<version>` with the release version (for this tree, `3.2.5`).
 
 ## Debian / Ubuntu
 
 ```bash
-sudo apt install ./ddn-redclient_3.2.3_amd64.deb
+sudo apt install ./ddn-redclient_3.2.5_amd64.deb
 redclient --version
 ```
 
@@ -35,7 +35,7 @@ Upgrade by installing a newer `.deb` the same way.
 ## RHEL / Rocky
 
 ```bash
-sudo dnf install ./ddn-redclient-3.2.3-1.x86_64.rpm
+sudo dnf install ./ddn-redclient-3.2.5-1.x86_64.rpm
 redclient --version
 ```
 
@@ -46,7 +46,7 @@ Upgrade by installing a newer `.rpm` the same way.
 Unzip the release archive, then run the bundled installer (see `INSTALL.txt` inside the zip):
 
 ```bash
-./install.sh ./redclient_3.2.3
+./install.sh ./redclient_3.2.5
 source ~/.bashrc   # or open a new terminal
 redclient --version
 ```
@@ -58,7 +58,7 @@ On macOS the zip may also include `RedClient.app`. Re-run `install.sh` with a ne
 Unzip the release archive, then in PowerShell:
 
 ```powershell
-.\install.ps1 -Source .\redclient_3.2.3
+.\install.ps1 -Source .\redclient_3.2.5
 redclient --version
 ```
 
