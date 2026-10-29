@@ -1,5 +1,30 @@
 # Changelog
 
+## 3.2.8 — 2026-10-29
+
+### tags find (large buckets)
+- Pipelined list→tag: listing fills a bounded queue while workers run concurrent `GetObjectTagging` (no full target list in RAM)
+- `--queue-size N` (default 2048), `--spill [PATH]` (JSONL matches on disk), `-o text` skips collecting all rows
+- Progress shows `scanned` / `matched` / `listed` / `queue`; help + User Manual updated
+- Fix: `--progress` no longer deadlocks after ~100 listed keys (non-reentrant lock nested in progress print)
+
+## 3.2.7 — 2026-10-29
+
+### Desktop
+- Provision / Teardown progress is a free-floating window (move, resize, minimize/maximize); the main app stays usable. Close stays blocked until the job finishes. Other dialogs remain modal.
+- Browse Tags dialog: vertical splitter between AWS-compliant and DDN-unlimited sections (drag to give DDN more room)
+
+## 3.2.6 — 2026-10-28
+
+### S3 tags / browse filters
+- `redclient tags find -b BUCKET [-p PREFIX] --match FILTER` scans a bucket/prefix with concurrent GetObjectTagging (current object by default; `--all-versions` for every VersionId). Repeat `--match` for AND; `,` / `|` inside one filter for OR. `--workers`, `--max-keys`, `--progress`, `--no-unlimited`; `-o table|json|text`
+- `redclient tags get|set|delete` honor `-o table|json|text` (Key/Value table by default on get)
+- Browse listing **Name**, **Lock**, and **Tags** filters accept multiple alternatives with `,` or `|` (OR), e.g. `*.docx, *.pdf` or `Environment=prod | Team=ops`
+- Tenants → **Create Bucket** / `create_tenant_bucket` stamps the same `Tenant` / `ManagedBy=redclient` and `ddn:provision.*` tags as full provision (soft-fail if tagging fails)
+
+### Docs
+- Help (`tags` cookbook for get/set/delete/find, `s3 ls`, `loadgen`, `gui`, `help start` / printable manual), User Manual (Browse Tags + CLI find), DEVELOPMENT command tree, and packaging version sync
+
 ## 3.2.5 — 2026-10-27
 
 ### S3 tags (Infinia 2.5+ DDN-unlimited)
