@@ -1,5 +1,26 @@
 # Changelog
 
+## 4.0.0 — 2026-10-30
+
+### Packaging rename (breaking for artifact / package paths)
+- Release artifacts and Linux package names now use the prefix **`red-demo-client`** so they are not confused with DDN POSIX **red-client**
+- Examples: `red-demo-client_<version>_<os>-<arch>.zip`, `red-demo-client_<version>_amd64.deb`, `red-demo-client-<version>-1.*.rpm`, `red-demo-client_<version>_freeze-src.zip`
+- Install trees: `/usr/lib/red-demo-client/`, `~/.local/share/red-demo-client/`, `%LOCALAPPDATA%\Red-Demo-Client\`
+- **Unchanged:** CLI `redclient` / `redc`, account config under `~/.config/ddn-redclient` (and Windows equivalent), Python package `ddn_redclient`
+- `.deb` Conflicts/Replaces and `.rpm` Obsoletes the legacy `ddn-redclient` package name
+- Docs / publish / build scripts / `INSTALL.md` updated for the new names; major version jump for the packaging break
+
+### Platform support (from 3.2.9)
+- Documented OS / **glibc** matrix; freeze stamps `build_platform.json`; runtime glibc check; prefer Ubuntu 24.04 freeze hosts
+
+## 3.2.9 — 2026-10-30
+
+### Platform support (packaged Linux)
+- Documented OS / **glibc** matrix in `INSTALL.md`, README, packaging README, User Manual, and `redclient help platforms` (kernel is not the constraint; X11 and Wayland both OK for the GUI)
+- Freeze stamps `build_platform.json` (glibc + distro); copied into the onedir, `INSTALL.txt`, `.deb`/`.rpm` description + `README.Debian`, and GitHub Release notes
+- Frozen Linux builds refuse normal commands when host glibc is older than the freeze stamp (`--version` / `help` / `completion` still run); clearer PySide6 import errors for packaged builds
+- Build warns when freezing on glibc newer than Ubuntu 24.04 (2.39); prefer Ubuntu 24.04 as the release freeze host
+
 ## 3.2.8 — 2026-10-29
 
 ### tags find (large buckets)

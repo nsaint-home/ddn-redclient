@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**Version 3.2.8** · 2026-10-29 · **Phase 3** · see [CHANGELOG.md](CHANGELOG.md)
+**Version 4.0.0** · 2026-10-30 · **Phase 3** · see [CHANGELOG.md](CHANGELOG.md)
 
 Portable client for **DDN Infinia**: realm administration, S3 browse and transfer, cluster monitoring, and S3 load generation — as a CLI (`redclient`) and a desktop window (`redclient gui`).
 
@@ -12,11 +12,11 @@ Installers for Linux, Windows, and macOS are published on this repository’s **
 
 | Platform | Typical assets |
 | --- | --- |
-| Debian / Ubuntu | `.deb` |
-| RHEL / Rocky | `.rpm` |
-| Linux / macOS / Windows | platform zip (`redclient_<version>_<os>-<arch>.zip`) |
+| Debian / Ubuntu | `red-demo-client_*.deb` (Ubuntu **24.04+** / Debian **12+** when frozen on 24.04) |
+| RHEL / Rocky | `red-demo-client-*.rpm` (RHEL/Rocky **9+** when frozen on that baseline) |
+| Linux / macOS / Windows | platform zip (`red-demo-client_<version>_<os>-<arch>.zip`) |
 
-See **[INSTALL.md](INSTALL.md)** for which file to pick and how to install or upgrade.
+Linux packages need **glibc ≥ the freeze host** (not a specific kernel). See **[INSTALL.md](INSTALL.md)** for the full matrix, which file to pick, and how to install or upgrade. After install: `redclient help platforms`.
 
 ## License
 
