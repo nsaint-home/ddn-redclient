@@ -1,5 +1,21 @@
 # Changelog
 
+## 4.0.2 — 2026-11-03
+
+### Load gen content modes
+- `--content-mode auto|realistic|binary|stream` (GUI: File sizes → Content mode)
+- **auto** (default): realistic text/office below 4 MiB; **binary** (fast pattern `.bin`) above that; **stream** for large multipart-test (pattern uploaded with no local giant file)
+- binary/stream avoid CPU-heavy word filler for large objects; modify appends a small trailer on `.bin`
+- User Manual Load gen chapter + figures (`loadgen.svg`, `loadgen-content-mode.svg`) document Content mode
+- Left-rail **User Manual** control is a colorful 3D book with “User Manual” on the cover (no longer a small footer glyph matching About/Log)
+
+## 4.0.1 — 2026-10-30
+
+### Desktop launchers
+- Linux user install (`install.sh`) writes a version-stable menu entry (`~/.local/share/applications/redclient.desktop` → `…/red-demo-client/redclient gui`) plus the app icon; removed on `--uninstall`
+- Windows user install (`install.ps1`) creates a Start Menu shortcut **DDN-RedClient** (`redclient.exe gui`); removed on `-Uninstall`
+- App icon background is mid-grey so the DDN mark stays readable on dark desktops
+
 ## 4.0.0 — 2026-10-30
 
 ### Packaging rename (breaking for artifact / package paths)

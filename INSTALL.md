@@ -1,6 +1,6 @@
 # Install DDN-RedClient
 
-**Version 4.0.0** · 2026-10-30 · see [CHANGELOG.md](CHANGELOG.md)
+**Version 4.0.2** · 2026-11-03 · see [CHANGELOG.md](CHANGELOG.md)
 
 Download packages from this repository’s **Releases** page. Pick the asset that matches your OS. Packages built for one OS do not run on another.
 
@@ -47,12 +47,12 @@ redclient --version
 | macOS | `red-demo-client_<version>_macos-arm64.zip` or `macos-x86_64.zip` |
 | Windows | `red-demo-client_<version>_windows-amd64.zip` |
 
-Replace `<version>` with the release version (for this tree, `4.0.0`).
+Replace `<version>` with the release version (for this tree, `4.0.2`).
 
 ## Debian / Ubuntu
 
 ```bash
-sudo apt install ./red-demo-client_4.0.0_amd64.deb
+sudo apt install ./red-demo-client_4.0.2_amd64.deb
 redclient --version
 redclient help platforms
 ```
@@ -64,7 +64,7 @@ Upgrade by installing a newer `.deb` the same way.
 ## RHEL / Rocky
 
 ```bash
-sudo dnf install ./red-demo-client-4.0.0-1.x86_64.rpm
+sudo dnf install ./red-demo-client-4.0.2-1.x86_64.rpm
 redclient --version
 redclient help platforms
 ```
@@ -76,7 +76,7 @@ Upgrade by installing a newer `.rpm` the same way.
 Unzip the release archive, then run the bundled installer (see `INSTALL.txt` inside the zip):
 
 ```bash
-./install.sh ./red-demo-client_4.0.0
+./install.sh ./red-demo-client_4.0.2
 source ~/.bashrc   # or open a new terminal
 redclient --version
 ```
@@ -88,7 +88,7 @@ On macOS the zip may also include `RedClient.app`. Re-run `install.sh` with a ne
 Unzip the release archive, then in PowerShell:
 
 ```powershell
-.\install.ps1 -Source .\red-demo-client_4.0.0
+.\install.ps1 -Source .\red-demo-client_4.0.2
 redclient --version
 ```
 
