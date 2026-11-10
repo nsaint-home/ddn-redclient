@@ -1,5 +1,23 @@
 # Changelog
 
+## 4.0.17 — 2026-11-10
+
+### Dark-mode checkbox outlines
+- Fusion was stroking checkboxes from the window color, so dark mode had no visible box edge
+- Dark theme now paints a slate outline (disabled quieter; keyboard focus uses action blue); light mode unchanged
+
+### SuperAdmin refresh / cross-pane updates
+- Forced inventory no longer joins a pre-mutation in-flight walk; cache clears bump an epoch so stale walks cannot overwrite fresher results
+- After tenant / bucket / user / access-key changes, Management invalidates soft caches and refreshes Tenants + S3 Browse (and Access / mode pickers when relevant)
+- Mode changes always reset Browse's in-memory folder cache; Management tab switches force-refresh Tenants/Users
+- Flight watchdog recovery retries the visible pane once; startup reclaims leftover host API-flight ledger slots; ledger lock times out instead of hanging
+
+### User Manual — Management wizards + page chrome
+- Screenshots for Create bucket, Delete bucket, Add / Grant / Edit scope / Update / Prepare User mode / Import user, and Create S3 access key / Store secret
+- Live page chrome for Tenants / Users / Access; Settings panels (Operating mode, Realm, Node access, Client, Scheduled Jobs, Logs)
+- Browse dialogs: Policy, Tags, Object Lock, Lock defaults, Trim (PNG grabs alongside existing menu SVGs)
+- Capture helper: ``python packaging/capture_manual_figures.py``
+
 ## 4.0.16 — 2026-11-06
 
 ### Job-scoped credentials for scheduled Trim / version-daily
