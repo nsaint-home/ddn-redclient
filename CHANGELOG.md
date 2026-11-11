@@ -1,5 +1,15 @@
 # Changelog
 
+## 4.0.18 — 2026-11-11
+
+### API latency (flight stays at 2)
+- Browse version enrich scopes ListObjectVersions to the listed page keys (early-stop past max key, MaxKeys=1000) and skips redundant re-LOV when cache already has counts; forced Refresh still re-enriches
+- Folder Object Lock paint uses latest/current Heads only (any-version hold scan stays on expand / Object Lock dialog); expand caches version children for the session and skips Heads when lock is off
+- Inventory derives ``s3_tenants`` from the bucket walk when possible (skips the second per-tenant services round-trip); ``service_rows`` / Access list use the same 2-worker pattern as live buckets when still needed
+- Soft-cache Access and Users lists (~60s), cleared by ``invalidate_cluster_views``; post-mutation user/access refresh soft-reloads Browse instead of always forcing a full inventory wipe
+- Monitor Home fans independent GETs through a 2-worker pool and soft-caches the assembled payload (~45s; explicit Refresh forces)
+- Debug log timestamps LOV enrich pages and inventory bucket vs services phases; Browse notes when the 200-page LOV cap truncates counts
+
 ## 4.0.17 — 2026-11-10
 
 ### Dark-mode checkbox outlines
