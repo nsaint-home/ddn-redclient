@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**Version 4.0.18** · 2026-11-11 · **Phase 3** · see [CHANGELOG.md](CHANGELOG.md)
+**Version 4.0.20** · 2026-11-13 · **Phase 3** · see [CHANGELOG.md](CHANGELOG.md)
 
 Portable client for **DDN Infinia**: realm administration, S3 browse and transfer, cluster monitoring, and S3 load generation — as a CLI (`redclient`) and a desktop window (`redclient gui`).
 

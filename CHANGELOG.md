@@ -1,5 +1,29 @@
 # Changelog
 
+## 4.0.20 — 2026-11-13
+
+### GUI login dialog
+- Login dialog shows a left-aligned **DDN-RedClient login** heading (native title bars often center/clip the long title); form labels left-aligned; wider minimum width
+- Fix startup crash: Browse splitter stylesheet used undefined ``action`` token (theme never applied → login never opened)
+
+### Browse List view, Tag Find, and visual parity
+- **Explorer / List** toggle: List is a flat recursive listing under the current path (Path column, optional All versions including delete markers)
+- **Paged listings (1000):** Explorer and List fetch at most one S3 page (1000 keys/versions) before paint; **Load more** appends the next page so dense buckets stay interactive
+- Path-bar Go resolves inventory ``bucket`` names so you can change buckets without the sidebar
+- **View** menu (with icons): Explorer view / List view; drag the splitter between the bucket tree and the listing to resize; View → Buckets sidebar collapses/restores (List collapses by default for width)
+- **Find tags…** (Selection / Bucket / context menu) searches tags under the current prefix or whole bucket via the existing find engine; results can Reveal in Explorer (All versions optional, default off)
+- Theme toggle uses the lighthouse icon in dark mode (switch to light); moon remains for light → dark
+- Name column: Legal Hold in gold, delete markers in red
+- Fix Tags column filter in List view: load tags after flat paint (Explorer already did), and enrich flat version rows / hide delete markers that have no tags
+- Browse listing Name column is user-resizable (was Stretch-only); last visible column still fills leftover width
+- Tags dialog Copy (Ctrl+C / context menu) for filter paste remains from 4.0.19 workstream
+
+## 4.0.19 — 2026-11-12
+
+### Browse version expand cache
+- Deleting a VersionId or removing a delete marker (Restore) now invalidates the session expand cache for that key / folder
+- Prevents a removed delete-marker or version from reappearing when the object is expanded again after Refresh
+
 ## 4.0.18 — 2026-11-11
 
 ### API latency (flight stays at 2)
