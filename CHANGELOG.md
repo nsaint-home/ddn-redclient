@@ -1,5 +1,18 @@
 # Changelog
 
+## 4.0.21 — 2026-11-19
+
+### macOS install
+- `install.sh` clears `com.apple.quarantine` on the unzipped tree, `~/.local/share/red-demo-client`, and `~/Applications/RedClient.app` so Gatekeeper does not block PyInstaller `.so` loads after a downloaded zip (`cp -a` used to keep the flag)
+
+### S3 transfer parallelism
+- Shared bounded producer/consumer pool (`s3/pipeline.py`); object workers default 16 (max 64, `RED_S3_OBJECT_WORKERS`); part concurrency scales down with workers
+- Recursive `s3 put` / `s3 get` upload and download in parallel; get streams ListObjects pages into workers
+- Recursive `s3 rm` streams listings into DeleteObjects batches of 1000
+- New `s3 cp` (local↔S3 / S3→S3, wildcards, `--flatten` / `--no-clobber` / `--include` / `--exclude`), `s3 sync`, `s3 run`, `s3 head`, `s3 cat`
+- `--workers` / `--queue-size` / `--progress` on transfer commands; Browse folder put/get pick up the same pool via `upload_tree` / `download_tree`
+- CLI help topics and desktop User Manual updated for parallel transfers and the new verbs
+
 ## 4.0.20 — 2026-11-13
 
 ### GUI login dialog
