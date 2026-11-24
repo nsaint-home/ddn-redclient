@@ -1,5 +1,10 @@
 # Changelog
 
+## 4.0.22 — 2026-11-24
+
+### Linux packages
+- `.deb` and `.rpm` depend on the Qt GUI host libraries (EGL, GL, X11, Wayland, fontconfig, glib) so `apt` / `dnf` install them with the client. Minimal images no longer need a separate `libegl1` install before `redclient gui`
+
 ## 4.0.21 — 2026-11-19
 
 ### macOS install
