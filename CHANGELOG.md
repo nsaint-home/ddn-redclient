@@ -1,5 +1,10 @@
 # Changelog
 
+## 4.0.23 — 2026-11-25
+
+### User Manual
+- Demo outline is its own manual category, generated from `docs/DEMO.md` (`chapters/07-demo.html`) with `DEMO.pdf` packaged beside it. Re-run `python packaging/render_demo_html.py` after editing the outline
+
 ## 4.0.22 — 2026-11-24
 
 ### Linux packages
